@@ -1,0 +1,51 @@
+﻿@model IEnumerable<NewspaperMVCProject.EntityLayer.Entities.Concrete.Category>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h4 class="box-title">List of Categories</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Status</td>
+                                    <td>
+                                        <a href="/Admin/Category/Update/@item.Id" class="btn btn-sm btn-warning">Update</a>
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/Category/Delete/@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer">
+                    <a href="/Admin/Category/Create" class="btn btn-block btn-primary">Create The Category</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

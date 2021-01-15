@@ -1,0 +1,58 @@
+﻿@model List<NewspaperMVCProject.EntityLayer.Entities.Concrete.AppUser>
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h4 class="box-title">List of AppUser</h4>
+                </div>
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>User Name</th>
+                                <th>Role</th>
+                                <th>Profile Image</th>
+                                <th>Update</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Id</td>
+                                    <td>@item.FirstName</td>
+                                    <td>@item.LastName</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.Role</td>
+                                    <td>
+                                        <img src="@item.XSmallUserImage" />
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/AppUser/Update/@item.Id" class="btn btn-sm btn-warning">Update</a>
+                                    </td>
+                                    <td>
+                                        <a href="/Admin/AppUser/Delete/@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box-footer">
+                    <a href="/Admin/AppUser/Create" class="btn btn-block btn-primary">Create The User</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

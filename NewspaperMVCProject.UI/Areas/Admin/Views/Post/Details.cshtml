@@ -1,0 +1,64 @@
+﻿@model NewspaperMVCProject.UI.Areas.Admin.Data.VMs.PostDetailsVM
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-10">
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <div class="user-block">
+                        <img class="img-circle" src="@Model.AppUser.UserImage" alt="User Image">
+                        <span class="username"><a href="#">@Model.AppUser.FirstName @Model.AppUser.LastName</a></span>
+                        <span class="description">Shared publicly - @Model.Post.CreateDate.ToShortDateString()</span>
+                    </div>
+                    <!-- /.user-block -->
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <img class="img-responsive pad" src="@Model.Post.ImagePath" alt="Photo">
+                    <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+                    <span class="pull-right text-muted">  @Model.CommentCount comments</span>
+                    <div class="box-header">
+                        <p>@Model.Post.Header</p>
+                    </div>
+                    <p>@Model.Post.Content</p>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer box-comments">
+                    @foreach (var item in Model.Comments)
+                    {
+                        <div class="box-comment">
+                            <!-- User image -->
+                            <img class="img-circle img-sm" src="@item.AppUser.UserImage" alt="User Image">
+                            <div class="comment-text">
+                                <span class="username">
+                                    @item.AppUser.FirstName @item.AppUser.LastName
+                                    <span class="text-muted pull-right">@item.CreateDate.ToShortDateString()</span>
+                                </span><!-- /.username -->
+                                @item.Text
+                            </div>
+                            <!-- /.comment-text -->
+                        </div>
+                    }
+
+                </div>
+                <!-- /.box-footer -->
+                <div class="box-footer">
+                    <form action="#" method="post">
+                        <img class="img-responsive img-circle img-sm" src="../dist/img/user4-128x128.jpg" alt="Alt Text">
+                        <!-- .img-push is used to add margin to elements next to floating images -->
+                        <div class="img-push">
+                            <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+        </div>
+    </div>
+</section>
+
+

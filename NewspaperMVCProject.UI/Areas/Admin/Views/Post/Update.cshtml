@@ -1,0 +1,65 @@
+﻿@model NewspaperMVCProject.UI.Areas.Admin.Data.VMs.UpdatePostVM
+
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h4 class="box-title">Update Post</h4>
+                </div>
+                <div class="box-body">
+                    <form action="/Admin/Post/Update" method="post" role="form" enctype="multipart/form-data">
+
+                        <input type="text" style="visibility:hidden" name="Id" value="@Model.PostDTO.Id" />
+
+                        <div class="form-group">
+                            <label>Header</label>
+                            <input type="text" name="Header" value="@Model.PostDTO.Header" class="form-control" placeholder="Header" />
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <input type="text" name="Content" value="@Model.PostDTO.Content" class="form-control" placeholder="Content" />
+                        </div>
+                        <div class="form-group">
+                            <label>Choose Category</label>
+                            <select name="CategoryId" class="form-control">
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Choose Author</label>
+                            <select name="AppUserId" class="form-control">
+                                @foreach (var item in Model.AppUsers)
+                                {
+                                    <option value="@item.Id">@item.FirstName @item.LastName</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Choose Picture</label>
+                            <input type="file" name="Image" value="@Model.PostDTO.ImagePath" class="form-control" />
+                        </div>
+
+                        <div class="form-group" style="float:right">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="box-footer">
+                    <a href="/Admin/Post/List" class="btn btn-danger btn-block">Back To List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

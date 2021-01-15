@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h4 class="box-title">Create User</h4>
+                </div>
+                <div class="box-body">
+                    <form action="/Admin/AppUser/Create" method="post" role="form" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" name="FirstName" class="form-control" placeholder="First Name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" name="LastName" class="form-control" placeholder="Last Name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input type="text" name="UserName" class="form-control" placeholder="User Name" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" name="Password" class="form-control" placeholder="Password" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Choose a Role</label>
+                            <select name="Role" class="form-control">
+                                @foreach (var item in Enum.GetNames(typeof(NewspaperMVCProject.EntityLayer.Enums.Role)))
+                                {
+                                    <option value="@item">@item</option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Choose Your Profile Image</label>
+                            <input type="file" name="Image" class="form-control" />
+                        </div>
+
+
+                        <div class="form-group" style="float:right">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="box-footer">
+                    <a href="/Admin/AppUser/List" class="btn btn-danger btn-block">Back To List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

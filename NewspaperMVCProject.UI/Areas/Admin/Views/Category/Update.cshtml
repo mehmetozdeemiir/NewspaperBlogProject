@@ -1,0 +1,36 @@
+﻿@model NewspaperMVCProject.UI.Areas.Admin.Data.DTOs.CategoryDTO
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h4 class="box-title">Update Category</h4>
+                </div>
+                <div class="box-body">
+                    <form action="/Admin/Category/Update" method="post" role="form">
+
+                        <input type="text" style="visibility:hidden" name="Id" value="@Model.Id" />
+
+                        <div class="form-group">
+                            <label>Category Name</label>
+                            <input type="text" value="@Model.Name" name="Name" class="form-control" placeholder="Category Name" />
+                        </div>
+                        <div class="form-group" style="float:right">
+                            <button type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="box-footer">
+                    <a href="/Admin/Category/List" class="btn btn-danger btn-block">Back To List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

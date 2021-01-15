@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <h4 class="box-title">Create Category</h4>
+                </div>
+                <div class="box-body">
+                    <form action="/Admin/Category/Create" method="post" role="form">
+                        <div class="form-group">
+                            <label>Category Name</label>
+                            <input type="text" name="Name" class="form-control" placeholder="Category Name" />
+                        </div>
+                        <div class="form-group" style="float:right">
+                            <button type="submit" class="btn btn-primary">Create</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="box-footer">
+                    <a href="/Admin/Category/List" class="btn btn-danger btn-block">Back To List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
